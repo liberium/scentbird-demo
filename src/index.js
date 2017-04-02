@@ -1,9 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect
+} from 'react-router-dom'
+
+import { SubscribeScreen } from './modules/subscribe/components'
 
 ReactDOM.render(
-  <App />,
+  <Router>
+    <div>
+      <Route path='/subscribe' component={SubscribeScreen}/>
+      <Redirect from='/' to='/subscribe'/>
+    </div>
+  </Router>,
   document.getElementById('root')
-);
+)
