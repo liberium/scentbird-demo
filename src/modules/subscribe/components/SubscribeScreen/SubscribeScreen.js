@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { Header, CreateAccountForm } from '../../../core/components'
+import { Header, CreateAccountForm } from 'core/components'
 import {
   OrderSheet,
   SubscriptionPaymentForm,
   ShippingInfo
-} from '../../components'
+} from 'subscribe/components'
 
 const SubscribeScreen = () => (
   <div className='SubscribeScreen'>

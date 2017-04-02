@@ -6,7 +6,7 @@ import {
   Redirect
 } from 'react-router-dom'
 
-import { SubscribeScreen } from './modules/subscribe/components'
+import { SubscribeScreen } from 'subscribe/components'
 
 ReactDOM.render(
   <Router>
