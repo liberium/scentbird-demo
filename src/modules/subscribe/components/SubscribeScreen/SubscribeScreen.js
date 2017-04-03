@@ -1,4 +1,7 @@
 import React from 'react'
+import styled from 'styled-components'
+
+import { media } from 'core/style-utils'
 
 import {
   Header,
@@ -8,19 +11,62 @@ import {
 import {
   OrderSheet,
   SubscriptionPaymentForm,
-  ShippingInfo
+  ShippingInfo,
+  SubscriptionHeader
 } from 'subscribe/components'
 
+const Container = styled.main`
+  display: flex;
+  flex-flow: column;
+  margin: 1em;
+`
+const GridContainer = styled.div`
+  display: grid;
+  ${media.phone`
+    grid-template:
+      "SubscriptionHeader"
+      "OrderSheet"
+      "ShippingAddressForm"
+      "CcPaymentForm"
+      "ShippingInfo";
+  `}
+  ${media.tablet`
+    
+  `}
+`
+const GridItem = ({ area, children }) => {
+  const ItemContainer =
+    styled.div`
+      grid-area: ${area};
+    `
+  return (
+    <ItemContainer>
+      {children}
+    </ItemContainer>
+  )
+}
+
 const SubscribeScreen = () => (
-  <div className='SubscribeScreen'>
+  <Container>
     <Header/>
-    <main>
-      <OrderSheet/>
-      <CreateAccountForm/>
-      <SubscriptionPaymentForm/>
-      <ShippingInfo/>
-    </main>
-  </div>
+    <GridContainer>
+      <GridItem area='SubscriptionHeader'>
+        <SubscriptionHeader/>
+      </GridItem>
+      <GridItem area='OrderSheet'>
+        <OrderSheet/>
+      </GridItem>
+      <GridItem area='CreateAccountForm'>
+        <CreateAccountForm/>
+      </GridItem>
+      <GridItem area='SubscriptionPaymentForm'>
+        <SubscriptionPaymentForm/>
+      </GridItem>
+      <GridItem area='ShippingInfo'>
+        <ShippingInfo/>
+      </GridItem>
+    </GridContainer>
+  </Container>
 )
 
 export default SubscribeScreen
