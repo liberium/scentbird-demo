@@ -8,6 +8,8 @@ import {
 
 import { SubscribeScreen } from 'subscribe/components'
 
+import 'reset-css/reset.css'
+
 ReactDOM.render(
   <Router>
     <div>
