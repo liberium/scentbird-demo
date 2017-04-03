@@ -5,17 +5,24 @@ import {
   Route,
   Redirect
 } from 'react-router-dom'
-
+import { ThemeProvider } from 'styled-components'
 import { SubscribeScreen } from 'subscribe/components'
 
 import 'reset-css/reset.css'
 
+const theme = {
+  main: 'FF408E',
+  danger: 'FF0000'
+}
+
 ReactDOM.render(
-  <Router>
-    <div>
-      <Route path='/subscribe' component={SubscribeScreen}/>
-      <Redirect from='/' to='/subscribe'/>
-    </div>
-  </Router>,
+  <ThemeProvider theme={theme}>
+    <Router>
+      <div>
+        <Route path='/subscribe' component={SubscribeScreen}/>
+        <Redirect from='/' to='/subscribe'/>
+      </div>
+    </Router>
+  </ThemeProvider>,
   document.getElementById('root')
 )
